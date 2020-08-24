@@ -14,7 +14,7 @@ export const useStyle = makeStyles({
         paddingTop: '10px',
     },
     todoControl: {
-        width: '300px',
+        width: '285px',
         marginTop: '15px',
     }
 });

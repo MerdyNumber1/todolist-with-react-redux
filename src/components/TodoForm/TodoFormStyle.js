@@ -7,7 +7,7 @@ export const useStyle = makeStyles({
         flexDirection: 'column',
         justifyContent: 'flex-start',
         alignItems: 'center',
-        width: '300px',
+        width: '285px',
     },
     todoFormBtn: {
         marginTop: '5px',
