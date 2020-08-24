@@ -2,7 +2,7 @@ import {bindActionCreators} from "redux";
 import React from 'react';
 import {addTask, removeTask} from "store/todoList/actions";
 import {connect} from "react-redux";
-import TodoList from "./TodoList";
+import {TodoList} from "components";
 
 function mapStateToProps(state) {
     return {

@@ -1,9 +1,13 @@
 import React from 'react';
-import TodoListContainer from "./components/TodoListContainer";
+import {Routes} from './Routes';
+import {Nav} from './components';
 
 const App = (props) => {
   return (
-      <TodoListContainer />
+      <>
+        <Nav />
+        <Routes />
+      </>
   );
 };
 export default App;
