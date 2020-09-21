@@ -9,7 +9,8 @@ export default function(props) {
         e.preventDefault();
         let taskValue = e.target.task.value;
         if(taskValue) {
-            props.addTask(taskValue);
+            props.addTask({title: taskValue});
+            e.target.task.value = '';
         }
     }
     return(

@@ -1,16 +1,13 @@
-import {ADD_TASK, REMOVE_TASK, COMPLETE_TASK} from "./actions";
+import {ADD_TASK, REMOVE_TASK, COMPLETE_TASK, SETUP_TASKS} from "./actions";
 import initState from "./initState";
+import {getObjectSize} from "../../utils/getObjectSize";
 
 export default (state = initState, action) => {
     switch(action.type) {
         case ADD_TASK:
-            let newTask = {id: Date.now(), title: action.payload};
-            if(localStorage) {
-                localStorage.setItem('tasks', JSON.stringify([...state.tasks, newTask]))
-            }
             return {
                 ...state,
-                tasks: [...state.tasks, newTask],
+                tasks: [...state.tasks, {title: action.payload.title, id: Date.now()}],
             };
         case REMOVE_TASK:
             if(localStorage) {
@@ -35,6 +32,18 @@ export default (state = initState, action) => {
             }
             return {
                 ...state,
+            };
+        case SETUP_TASKS:
+            const lastTaskId = getObjectSize(state.tasks) ? state.tasks[getObjectSize(state.tasks) - 1].id : 0;
+            let tasks = action.payload.map((task, index) => {
+                return {
+                    id: lastTaskId + index,
+                    ...task,
+                };
+            });
+            return {
+                ...state,
+                tasks,
             };
         default:
             return state;

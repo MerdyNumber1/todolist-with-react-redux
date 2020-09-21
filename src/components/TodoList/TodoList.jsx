@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {TodoForm, TodoControl} from "components";
 
 export default function(props) {
+    useEffect(() => props.setupTasks(), []);
     return (
         <>
             <TodoForm addTask={props.addTask} />
