@@ -18,18 +18,30 @@ export const addTask = (task) => (dispatch) => {
     });
 };
 
-export const removeTask = (id) => {
-    return {
+export const removeTask = (task) => (dispatch) => {
+    fetch(`${process.env.REACT_APP_API_URL}/tasks/${task.title}`, {
+        method: 'DELETE',
+    });
+
+    dispatch({
         type: REMOVE_TASK,
-        payload: id,
-    }
+        payload: task.id,
+    });
 };
 
-export const completeTask = (id) => {
-    return {
+export const completeTask = (task) => (dispatch) => {
+    fetch(`${process.env.REACT_APP_API_URL}/tasks/${task.title}`, {
+        method: 'PUT',
+        body: JSON.stringify({isDone: 1}),
+        headers: {
+            'Content-type': 'application/json'
+        }
+    });
+
+    dispatch({
         type: COMPLETE_TASK,
-        payload: id,
-    }
+        payload: task.id,
+    });
 };
 
 export const setupTasks = () => (dispatch) => {

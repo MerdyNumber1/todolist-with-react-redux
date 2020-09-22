@@ -6,7 +6,11 @@ export default function(props) {
     return (
         <>
             <TodoForm addTask={props.addTask} />
-            <TodoControl tasks={props.tasks} removeTask={props.removeTask} completeTask={props.completeTask} />
+            <TodoControl
+                tasks={props.tasks}
+                removeTask={props.removeTask}
+                completeTask={props.completeTask}
+            />
         </>
     );
 }
