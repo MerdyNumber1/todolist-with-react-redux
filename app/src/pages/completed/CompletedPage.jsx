@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Container} from '@material-ui/core';
 import {useStyles} from "pages/pageStyle";
-import {CompletedTasks} from 'components';
+import {CompletedTasksContainer} from 'components';
 
 export default function CompletedPage(props) {
     const classes = useStyles();
@@ -11,7 +11,7 @@ export default function CompletedPage(props) {
     return (
         <>
             <Container className={classes.container}>
-                <CompletedTasks />
+                <CompletedTasksContainer />
             </Container>
         </>
     );

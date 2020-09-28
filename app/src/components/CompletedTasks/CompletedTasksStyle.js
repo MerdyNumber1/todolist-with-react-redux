@@ -8,5 +8,9 @@ export const useStyles = makeStyles({
     completedTask: {
         marginTop: '5px',
         padding: '10px',
+    },
+    completedButton: {
+        width: '100%',
+        margin: '10px 0px',
     }
 });
